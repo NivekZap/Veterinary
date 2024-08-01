@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>ACTUALIZAR CITAS</title>
+        <ui:include src="/header.xhtml"/>
+    <style>
+        .content {
+                margin-left: 200px;
+                padding: 20px;
+                margin-top: 55px; /* Para evitar que el contenido se superponga con el navbar */
+            }
+    </style>
+    </h:head>
+            <div class="sidebar">
+            <ul>
+                <li><b:navLink value="Inicio" icon="" href="#{request.contextPath}/index.xhtml"></b:navLink></li><br></br> 
+                <li><b:navLink value="Cargos" icon="" href="/vistas/ListaCargos.xhtml"></b:navLink></li><br></br> 
+                <li><b:navLink value="Usuarios" icon="" href="#{request.contextPath}/Vistas/Usuarios/usuarios.xhtml"></b:navLink></li><br></br> 
+                <li><b:navLink value="Personal" icon="" href="#{request.contextPath}/Vistas/Personal/personal.xhtml"></b:navLink></li><br></br> 
+                <li><b:navLink value="Clientes" icon="" href="#{request.contextPath}/Vistas/Clientes/clientes.xhtml"></b:navLink></li><br></br> 
+                <li><b:navLink value="Mascotas" icon="" href="#{request.contextPath}/Vistas/Mascotas/mascotas.xhtml"></b:navLink></li><br></br> 
+                <li><b:navLink value="Citas" icon="" href="#{request.contextPath}/Vistas/Citas/Citas.xhtml"></b:navLink></li><br></br> 
+            </ul>
+        </div>
+    <h:body >
+        <div class="content">
+        <b:form id="forma" style="padding-left: 50px;">
+            <br/>
+            <b:panel style="width: 550px;" title="ACTUALIZAR INFORMACION DE LAS CITAS" look="success">
+                <b:panelGrid columns="1" size="xs">
+                    <b:inputText id="clienteID" value="#{beanCita.cita.clienteID}" label="ID CLIENTE"
+                                 required="true" requiredMessage="El ID del cliente es obligatorio"/>
+                    <b:message for="@previous"/>                  
+                    <b:inputText id="doctorID" value="#{beanCita.cita.doctorID}" label="ID DOCTOR"
+                                 required="true" requiredMessage="El ID del doctor es obligatorio"/>
+                    <b:message for="@previous"/>
+                    <b:inputText id="mascotaID" value="#{beanCita.cita.mascotaID}" label="ID MASCOTA"
+                                 required="true" requiredMessage="El ID de la mascota es obligatorio"/>
+                    <b:message for="@previous"/>
+                    <b:inputText id="salaID" value="#{beanCita.cita.salaID}" label="ID SALA"
+                                 required="true" requiredMessage="El ID de la sala es obligatorio"/>
+                    <b:message for="@previous"/>
+
+                    <b:inputText id="motivo" value="#{beanCita.cita.motivo}" label="MOTIVO"/>
+                    <b:inputText id="notas" value="#{beanCita.cita.notas}" label="NOTAS"/>
+                    <b:selectOneMenu id="estado" value="#{beanCita.cita.estado}" label="ESTADO DE CITA">
+                    <f:selectItem itemLabel="Seleccionar" itemValue="" />
+                    <f:selectItem itemLabel="Agendada" itemValue="Agendada" />
+                    <f:selectItem itemLabel="Completada" itemValue="Completada" />
+                    <f:selectItem itemLabel="Cancelada" itemValue="Cancelada" />
+                </b:selectOneMenu>
+                    <b:message for="@previous"/>
+                </b:panelGrid>
+                <br/>
+              <b:commandButton value="ACTUALIZAR CITAS" look="success" style="width: 180px; align-content: center;"
+                               actionListener="#{beanCita.actualizarCita()}" action="Citas.xhtml"/>
+            </b:panel>
+        </b:form>
+        </div>
+    </h:body>
+</html>
+

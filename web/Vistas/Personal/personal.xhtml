@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+    <ui:include src="/header.xhtml"/>
+    <style>
+        .content {
+                margin-left: 200px;
+                padding: 20px;
+                margin-top: 55px; /* Para evitar que el contenido se superponga con el navbar */
+            }
+    </style>
+    </h:head>
+            <div class="sidebar">
+            <ul>
+                <li><b:navLink value="Inicio" icon="" href="#{request.contextPath}/index.xhtml"></b:navLink></li><br></br> 
+                
+                <li><b:navLink value="Usuarios" icon="" href="#{request.contextPath}/Vistas/Usuarios/usuarios.xhtml"></b:navLink></li><br></br> 
+                <li><b:navLink value="Personal" icon="" href="#{request.contextPath}/Vistas/Personal/personal.xhtml"></b:navLink></li><br></br> 
+                <li><b:navLink value="Clientes" icon="" href="#{request.contextPath}/Vistas/Clientes/clientes.xhtml"></b:navLink></li><br></br> 
+                <li><b:navLink value="Mascotas" icon="" href="#{request.contextPath}/Vistas/Mascotas/mascotas.xhtml"></b:navLink></li><br></br> 
+                <li><b:navLink value="Citas" icon="" href="#{request.contextPath}/Vistas/Citas/Citas.xhtml"></b:navLink></li><br></br> 
+            </ul>
+        </div>
+    <h:body >
+        <div class="content">
+            <b:form id="forma">
+                <b:panel>
+                    <br></br>
+                    <b:row>
+                        <b:label severity="primary" value="LISTA PERSONAL" large-screen="full-width"
+                                 style="font-size: 30px;"/>
+                    </b:row> <br></br>
+                    <b:commandButton value="NUEVO PERSONAL" look="primary" style="width: 180px; align-content: center;"
+                                     action="NuevoPersonal.xhtml"/>
+                    <br></br><br></br>
+                    <b:commandButton value="DESCARGAR PDF" look="primary" style="width: 180px; align-content: center;" action="#{beanDoctor.descargarPdfD()}"/>
+                    <br></br><br></br>
+                    <b:dataTable value="#{beanDoctor.ListaDoctor()}" var="doctor" style="width: 1380px">
+                    <b:dataTableColumn value="#{doctor.ID}" label="ID" width="60px"/>
+                    <b:dataTableColumn value="#{doctor.nombre}" label="nombre  " width="350px"/>
+                    <b:dataTableColumn value="#{doctor.apellido}" label="apellido" width="150px"/>
+                    <b:dataTableColumn value="#{doctor.especializacion}" label="especializacion " width="150px"/>
+                    <b:dataTableColumn value="#{doctor.correoElectronico}" label="correo " width="150px"/>
+                    <b:dataTableColumn value="#{doctor.telefono}" label="telefono " width="150px"/>
+                    <b:dataTableColumn label="ACCIONES" width="180px">
+                        <b:commandButton value="Editar" look="success" style="width:80px; align-content: center;"
+                                         actionListener="#{beanDoctor.editarPersonal(doctor)}" action="EditarPersonal"/>
+                        <b:commandButton value="Eliminar" look="danger" style="width:80px; align-content: center;"
+                                         actionListener="#{beanDoctor.eliminarPersonal(doctor.ID)}"/>
+                    </b:dataTableColumn>
+                </b:dataTable>                      
+                    <br/><br/>
+                    <br/><br/>
+                </b:panel>
+            </b:form>
+        </div>
+    </h:body>
+</html>

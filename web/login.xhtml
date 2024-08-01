@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <style>
+            body {
+                background-color: #f0f4f8;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+            .login-panel {
+                background-color: white;
+                padding: 40px;
+                border-radius: 10px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) ;
+                width: 100%;
+                max-width: 400px;
+                text-align: center;
+            }
+            .login-panel h1 {
+                font-size: 2em;
+                margin-bottom: 20px;
+                color: #333;
+            }
+            .login-panel h:outputLabel {
+                font-size: 1.1em;
+                color: #333;
+                display: block;
+                margin-bottom: 10px;
+                text-align: left;
+            }
+            .login-panel h:inputText, .login-panel h:inputSecret {
+                width: 100%;
+                padding: 15px;
+                margin-bottom: 20px;
+                font-size: 1.1em;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+            .login-panel h:commandButton {
+                width: 100%;
+                padding: 15px;
+                font-size: 1.2em;
+                background-color: #007bff;
+                color: white;
+            }
+            .login-panel h:commandButton:hover {
+                background-color: #0056b3;
+                padding: 15px;
+                font-size: 1.2em;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+            .error {
+                color: red;
+                font-size: 1em;
+                margin-top: 10px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+
+            <div class="login-panel">
+                <h1>EL GATO NEGRO</h1>
+                <h1>Iniciar Sesión</h1>
+                <h:outputLabel for="username" value="Nombre de usuario:" />
+                <br></br>   
+                <br></br>  
+                <h:inputText id="username" value="#{loginBean.username}" required="true" />
+                <br></br>   
+                <br></br>   
+                <h:outputLabel for="password" value="Contraseña:" />
+                <br></br>   
+                <br></br>  
+                <h:inputSecret id="password" value="#{loginBean.password}" required="true" />
+                <br></br>   
+                <br></br>      
+                <h:commandButton value="Iniciar sesión" action="#{loginBean.login}" />
+                <br></br>   
+                <br></br>       
+                <!-- Mensaje de error -->
+                <h:panelGroup rendered="#{not empty loginBean.mensaje}">
+                    <h:outputText value="#{loginBean.mensaje}" styleClass="error" />
+                </h:panelGroup>
+            </div>
+        </h:form>
+    </h:body>
+</html>

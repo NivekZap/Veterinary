@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>NUEVO CARGO</title>
+    </h:head>
+    <h:body>
+        <b:form id="forma" style="padding-left: 50px;">
+            <br/>
+            <b:panel style="width: 550px;" title="REGISTRO DE NUEVO CARGO" look="primary">
+                <b:panelGrid columns="1" size="xs">
+                    <b:inputText id="idcar" value="#{beanCargo.car.idcargo}" label="ID CARGO"
+                                 required="true" requiredMessage="El id es obligatorio"/>
+                    <b:message for="@previous"/>
+                    <b:inputText id="nomcar" value="#{beanCargo.car.nombre}" label="NOMBRE CARGO"
+                                 required="true" requiredMessage="El nombre es obligatorio"/>
+                    <b:message for="@previous"/>
+                    <b:inputText id="sumin" value="#{beanCargo.car.sueldo_min}" label="SUELDO MINIMO"/>
+                    <b:inputText id="sumax" value="#{beanCargo.car.sueldo_max}" label="SUELDO MAXIMO"/>
+                </b:panelGrid>  
+                <br/>
+              <b:commandButton value="REGISTRAR" look="primary" style="width: 120px; align-content: center;"
+                               actionListener="#{beanCargo.agregarCargo()}" action="/index.xhtml"/>
+            </b:panel>
+        </b:form>
+    </h:body>
+</html>

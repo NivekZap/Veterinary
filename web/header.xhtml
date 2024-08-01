@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:b="http://bootsfaces.net/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title><ui:insert name="pageTitle">Default Title</ui:insert></title>
+        <meta charset="UTF-8"/>
+        <b:navBar class="barra" brand="EL GATO NEGRO" brandHref="#{request.contextPath}/index.xhtml" inverse="true">
+        </b:navBar>
+                <style>
+            .sidebar {
+                width: 200px;
+                height: calc(100vh - 56px); /* Ajustar altura restando la altura del navbar */
+                position: fixed;
+                top: 20px; /* Altura del navbar */
+                left: 0;
+                background-color: whitesmoke;
+                padding: 20px;
+                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+                margin-top: 55px; /* Para evitar que el contenido se superponga con el navbar */
+                font-size: 1.5em;
+                color: black;
+            }
+            .content {
+                margin-left: 30px;
+                padding: 20px;
+                margin-top: 55px; /* Para evitar que el contenido se superponga con el navbar */
+            }
+            .sidebar ul {
+                list-style-type: none;
+                padding: 0;
+                color: black;
+            }
+            .sidebar li {
+                margin-bottom: 10px;
+            }
+            .barra{
+                font-size: 1.8em;
+            }
+        </style>
+    </h:head>
+</ui:composition>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
